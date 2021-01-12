@@ -23,8 +23,9 @@ module cp_if_stage #(
 
     logic valid_buf;
     logic [31:0] instr_buf;
-    logic cke = ~instr_valid_id_o | instr_ready_id_i;
+    logic cke;
 
+    assign cke = ~instr_valid_id_o | instr_ready_id_i;
     assign instr_valid_id_o = valid_buf;
     assign instr_data_id_o  = instr_buf;
     assign instr_ready_o    = cke;
